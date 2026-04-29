@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Log - Project Description</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Russo+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Algerian', 'Russo One', 'Orbitron', 'Impact', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            padding: 40px 20px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 动态背景效果 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 195, 113, 0.1) 0%, transparent 50%);
+            animation: bgShift 10s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(22, 33, 62, 0.9);
+            padding: 60px;
+            border-radius: 25px;
+            box-shadow:
+                0 0 60px rgba(78, 205, 196, 0.3),
+                inset 0 0 40px rgba(78, 205, 196, 0.1);
+            border: 3px solid rgba(78, 205, 196, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 主标题 */
+        h1 {
+            font-family: 'Algerian', 'Russo One', 'Impact', sans-serif;
+            font-size: 4.5em;
+            text-align: center;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d, #4ecdc4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease infinite;
+            text-shadow: 0 0 30px rgba(78, 205, 196, 0.6);
+            margin-bottom: 50px;
+            letter-spacing: 10px;
+            position: relative;
+        }
+
+        h1::before {
+            content: '📚';
+            position: absolute;
+            left: -80px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* 二级标题 */
+        h2 {
+            font-family: 'Algerian', 'Russo One', 'Impact', sans-serif;
+            font-size: 2.5em;
+            color: #4ecdc4;
+            margin: 40px 0 25px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px rgba(78, 205, 196, 0.8);
+            border-bottom: 3px solid #4ecdc4;
+            padding-bottom: 10px;
+        }
+
+        /* 三级标题 */
+        h3 {
+            font-family: 'Algerian', 'Russo One', 'Impact', sans-serif;
+            font-size: 1.8em;
+            color: #ff6b6b;
+            margin: 30px 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+        }
+
+        /* 段落 */
+        p {
+            font-family: 'Courier New', 'Consolas', monospace;
+            font-size: 1.2em;
+            line-height: 2;
+            color: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        /* 列表 */
+        ul {
+            list-style: none;
+            margin: 20px 0;
+            padding-left: 0;
+        }
+
+        li {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            line-height: 2;
+            color: #ffd93d;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        li::before {
+            content: '▸';
+            position: absolute;
+            left: 10px;
+            color: #4ecdc4;
+            font-size: 1.5em;
+        }
+
+        /* 特殊区块 */
+        .feature-box {
+            background: rgba(78, 205, 196, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            margin: 30px 0;
+        }
+
+        .auth-box {
+            background: rgba(255, 107, 107, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            margin: 30px 0;
+        }
+
+        .concept-box {
+            background: rgba(255, 195, 113, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 195, 113, 0.3);
+            margin: 30px 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(68, 160, 141, 0.2), rgba(78, 205, 196, 0.2));
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid #4ecdc4;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(78, 205, 196, 0.4);
+        }
+
+        /* 分割线 */
+        hr {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent,
+                #4ecdc4,
+                #ff6b6b,
+                #ffd93d,
+                #4ecdc4,
+                transparent);
+            margin: 50px 0;
+            animation: lineGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* 强调文本 */
+        .highlight {
+            color: #4ecdc4;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(78, 205, 196, 0.6);
+        }
+
+        .emphasis {
+            color: #ffd93d;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 217, 61, 0.6);
+        }
+
+        .important {
+            color: #ff6b6b;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 107, 107, 0.6);
+        }
+
+        /* 最终CTA */
+        .final-cta {
+            text-align: center;
+            font-size: 2.5em;
+            font-family: 'Algerian', 'Russo One', 'Impact', sans-serif;
+            background: linear-gradient(45deg, #4ecdc4, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 50px;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Emoji动画 */
+        .emoji {
+            display: inline-block;
+            font-size: 1.3em;
+            animation: rotate 3s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+        }
+
+        /* 编号列表 */
+        ol {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ol li {
+            counter-increment: step-counter;
+            padding-left: 60px;
+        }
+
+        ol li::before {
+            content: counter(step-counter);
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LEARNING LOG</h1>
+
+        <h2><span class="emoji">🎯</span> PROJECT OVERVIEW</h2>
+        <p>
+            <span class="highlight">Learning Log</span> is a web application that allows users to log the topics
+            they're interested in and make <span class="emphasis">journal entries</span> as they learn about each topic.
+        </p>
+
+        <hr>
+
+        <h2><span class="emoji">🏠</span> HOME PAGE</h2>
+        <div class="feature-box">
+            <p>The <span class="highlight">Learning Log home page</span> will:</p>
+            <ul>
+                <li>Describe the site</li>
+                <li>Invite users to either <span class="important">register</span> or <span class="important">log in</span></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2><span class="emoji">👤</span> USER FEATURES</h2>
+        <p>Once logged in, a user can:</p>
+
+        <div class="feature-box">
+            <h3><span class="emoji">✍️</span> Create New Topics</h3>
+            <p>Start tracking new subjects you want to learn about</p>
+
+            <h3><span class="emoji">📝</span> Add New Entries</h3>
+            <p>Write journal entries about your learning progress</p>
+
+            <h3><span class="emoji">📖</span> Read Existing Entries</h3>
+            <p>Review what you've learned so far</p>
+
+            <h3><span class="emoji">✏️</span> Edit Existing Entries</h3>
+            <p>Update and refine your learning notes</p>
+        </div>
+
+        <hr>
+
+        <h2><span class="emoji">🔐</span> AUTHENTICATION</h2>
+        <div class="auth-box">
+            <ul>
+                <li><span class="important">Register</span> - Create a new account</li>
+                <li><span class="important">Login</span> - Access your personal learning journal</li>
+                <li><span class="important">Logout</span> - Securely sign out</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2><span class="emoji">💡</span> KEY CONCEPTS</h2>
+        <div class="concept-box">
+            <p><span class="highlight">Learning Log</span> helps you:</p>
+            <ul>
+                <li><span class="emoji">📌</span> Organize your learning journey</li>
+                <li><span class="emoji">📈</span> Track your progress over time</li>
+                <li><span class="emoji">🎓</span> Build a personal knowledge base</li>
+                <li><span class="emoji">🔍</span> Reflect on what you've learned</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2><span class="emoji">🚀</span> GET STARTED</h2>
+        <div class="cta-box">
+            <p style="font-size: 1.5em; margin-bottom: 30px;">
+                <span class="emphasis">Ready to start your learning journey?</span>
+            </p>
+            <ol>
+                <li>Register for an account</li>
+                <li>Create your first topic</li>
+                <li>Add your first entry</li>
+                <li>Keep learning and growing!</li>
+            </ol>
+        </div>
+
+        <p class="final-cta">
+            Start logging your learning today! <span class="emoji">🌟</span>
+        </p>
+    </div>
+</body>
+</html>
