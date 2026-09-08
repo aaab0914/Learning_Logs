@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@!ps!osn#)$)w+0_9*=ko&j)*45+km8e)m*wcp-ul9(t)_bj6w'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
 
     # Third party app.
     'django_bootstrap5',
+    'django_extensions',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,8 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    
 ]
 
 MIDDLEWARE = [
@@ -124,6 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Keep new model primary keys compatible with the existing migrations.
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My settings.
 LOGIN_REDIRECT_URL = 'learning_logs:index'

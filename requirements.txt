@@ -1,5 +1,11 @@
 asgiref==3.11.1
 Django==5.2.13
 django-bootstrap5==26.2
+python-decouple==3.8
 sqlparse==0.5.5
 tzdata==2026.2
+ipython==9.13.0
+django-extensions==4.1
+Markdown==3.10.1
+pillow==12.2.0
+requests==2.34.1

@@ -1,5 +1,4 @@
 from django.db import models
-# from django.utils.text import slugify
 from django.contrib.auth.models import User
 
 class Topic(models.Model):
@@ -21,7 +20,6 @@ class Entry(models.Model):
     class Meta:
         verbose_name_plural = 'entries'
 
-    
     def __str__(self):
         """ Return a simple string representing the entry. """
         if len(self.text) > 50:

@@ -9,8 +9,20 @@
       topics you're learning about. Whenever you learn something new
       about a topic, make an entry summarizing what you've learned.</p>
 
+      {% if not user.is_authenticated %}
       <a class="btn btn-primary btn-lg mt-1"
-          href="{% url 'accounts:register' %}">Register &raquo;</a>
+          href="{% url 'accounts:register' %}">Register</a>
+        <a class="btn btn-primary btn-lg mt-1"
+          href="{% url 'accounts:login' %}">Log in</a>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}!</p>
+      {% else %}
+<!--        <a href="{% url 'accounts:register' %}">Register</a>-->
+
+      {% endif %}
+
     </div>
   </div>
 {% endblock page_header %}

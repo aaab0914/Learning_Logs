@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 
 def register(request):
     """ Register a new user. """
@@ -20,3 +21,9 @@ def register(request):
     # Display a blank or invalid form.
     context = {'form': form}
     return render(request, 'registration/register.html', context)
+
+class CustomLoginView(LoginView):
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().dispatch(request, *args, **kwargs)
+

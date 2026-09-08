@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.contrib.auth.views import LoginView
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -51,6 +52,8 @@ def new_topic(request):
 def new_entry(request, topic_id):
     """ Add a new entry for a particular topic. """
     topic = Topic.objects.get(id=topic_id)
+    if topic.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         # No data submitted; create a blank form.
@@ -88,3 +91,10 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+def register(request):
+    if request.user.is_authenticated:
+        return redirect('learning_logs:index')
+
+
+# @login_required           
