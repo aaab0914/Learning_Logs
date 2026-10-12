@@ -1,6 +1,6 @@
 # 📚 Learning Log
 
-A Django-based web application for tracking your learning journey. Create topics, write journal entries, and build your personal knowledge base.
+A Django 5.2 web application for tracking your learning journey. Create topics, write journal entries, and build a private personal knowledge base. This repository is also a practical learning project for Django models, forms, authentication, templates, testing, validation, and ORM queries.
 
 ## ✨ Features
 
@@ -10,13 +10,17 @@ A Django-based web application for tracking your learning journey. Create topics
 - **Entry Editing** - Update and refine your learning notes
 - **Personal Dashboard** - View all your topics and entries in one place
 - **User Privacy** - Each user can only access their own content
+- **Input Validation** - Topic and entry text can be normalized and validated before saving
+- **Django Admin** - Manage users, topics, and entries through the admin interface
+- **Local Favicon** - Pages use a project-local static favicon
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Django 3.x
+- **Backend**: Django 5.2+
 - **Database**: SQLite
 - **Frontend**: HTML, CSS
 - **Authentication**: Django built-in user authentication
+- **Code Quality**: Ruff for Python and djLint for Django templates
 
 ## 📋 Prerequisites
 
@@ -28,8 +32,8 @@ A Django-based web application for tracking your learning journey. Create topics
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/aaab0914/learning-log.git
-   cd learning-log
+   git clone https://github.com/aaab0914/new_learning_log-finished.git
+   cd new_learning_log-finished
    ```
 
 2. **Create and activate virtual environment**
@@ -66,6 +70,20 @@ A Django-based web application for tracking your learning journey. Create topics
 8. **Access the application**
    - Open your browser and go to `http://127.0.0.1:8000/`
 
+### Quality Checks
+
+From the repository root, use the project virtual environment when available:
+
+```bash
+.pwsh/Scripts/python.exe -m ruff check .
+.pwsh/Scripts/python.exe -m ruff format . --check
+.pwsh/Scripts/python.exe -m djlint . --profile=django --extension=html --check --use-gitignore
+.pwsh/Scripts/python.exe ll_project/manage.py check
+.pwsh/Scripts/python.exe ll_project/manage.py test
+```
+
+These checks help keep Python imports and formatting consistent, Django templates readable, and project configuration valid before changes are committed.
+
 ## 📖 Usage
 
 ### Getting Started
@@ -89,7 +107,7 @@ A Django-based web application for tracking your learning journey. Create topics
 ## 📁 Project Structure
 
 ```
-learning-log/
+new_learning_log-finished/
 ├── ll_project/                 # Main Django project
 │   ├── ll_project/            # Project settings
 │   ├── learning_logs/         # Main app
@@ -138,6 +156,9 @@ This project demonstrates:
 - URL routing
 - Template inheritance
 - Django ORM
+- Data validation with Django form validators
+- Automated Python and template formatting
+- Basic project quality checks and test workflows
 
 ## 📞 Support
 
