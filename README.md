@@ -32,8 +32,8 @@ A Django 5.2 web application for tracking your learning journey. Create topics, 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/aaab0914/new_learning_log-finished.git
-   cd new_learning_log-finished
+   git clone https://github.com/aaab0914/Learning_Logs.git
+   cd Learning_Logs
    ```
 
 2. **Create and activate virtual environment**
